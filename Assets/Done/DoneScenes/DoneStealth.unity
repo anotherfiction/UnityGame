@@ -3278,6 +3278,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a050b579aebf9a14d884a30aa5d10041, type: 3}
   m_Name: 
+  hitPoints: 100
   patrolSpeed: 2
   chaseSpeed: 6
   chaseWaitTime: 5
@@ -8755,6 +8756,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a050b579aebf9a14d884a30aa5d10041, type: 3}
   m_Name: 
+  hitPoints: 100
   patrolSpeed: 2
   chaseSpeed: 6
   chaseWaitTime: 5
@@ -21672,9 +21674,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3b059b06d05c0e04ba42674f84feac25, type: 3}
   m_Controller: {fileID: 9100000, guid: 1db68d53accfc2c4893b2b3e5707d6e7, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
 --- !u!136 &822199041
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23612,6 +23614,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a050b579aebf9a14d884a30aa5d10041, type: 3}
   m_Name: 
+  hitPoints: 100
   patrolSpeed: 2
   chaseSpeed: 6
   chaseWaitTime: 5
@@ -49647,6 +49650,7 @@ GameObject:
   - 82: {fileID: 1692794965}
   - 114: {fileID: 1692794966}
   - 114: {fileID: 1692794967}
+  - 114: {fileID: 1692794968}
   m_Layer: 0
   m_Name: gameController
   m_TagString: GameController
@@ -49763,6 +49767,17 @@ MonoBehaviour:
   aimWeightFloat: 0
   angularSpeedFloat: 0
   openBool: 0
+--- !u!114 &1692794968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1692794963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a2bda2f48f5ee4dbef76d6859c4369, type: 3}
+  m_Name: 
+  crosshairImage: {fileID: 0}
 --- !u!1 &1697204113
 GameObject:
   m_ObjectHideFlags: 0
@@ -52040,6 +52055,14 @@ Prefab:
     - target: {fileID: 100088, guid: 3b059b06d05c0e04ba42674f84feac25, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 3b059b06d05c0e04ba42674f84feac25, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 3b059b06d05c0e04ba42674f84feac25, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b059b06d05c0e04ba42674f84feac25, type: 3}
