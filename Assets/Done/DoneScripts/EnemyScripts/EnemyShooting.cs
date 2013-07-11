@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneEnemyShooting : MonoBehaviour
+public class EnemyShooting : MonoBehaviour
 {
 	public float maximumDamage = 120f;					// The maximum potential damage per shot.
 	public float minimumDamage = 45f;					// The minimum potential damage per shot.
@@ -11,12 +11,12 @@ public class DoneEnemyShooting : MonoBehaviour
 	
 	
 	private Animator anim;								// Reference to the animator.
-	private DoneHashIDs hash;							// Reference to the HashIDs script.
+	private HashIDs hash;							// Reference to the HashIDs script.
 	private LineRenderer laserShotLine;					// Reference to the laser shot line renderer.
 	private Light laserShotLight;						// Reference to the laser shot light.
 	private SphereCollider col;							// Reference to the sphere collider.
 	private Transform player;							// Reference to the player's transform.
-	private DonePlayerHealth playerHealth;				// Reference to the player's health.
+	private PlayerHealth playerHealth;				// Reference to the player's health.
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
 	
@@ -28,9 +28,9 @@ public class DoneEnemyShooting : MonoBehaviour
 		laserShotLine = GetComponentInChildren<LineRenderer>();
 		laserShotLight = laserShotLine.gameObject.light;
 		col = GetComponent<SphereCollider>();
-		player = GameObject.FindGameObjectWithTag(DoneTags.player).transform;
-		playerHealth = player.gameObject.GetComponent<DonePlayerHealth>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
+		player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+		playerHealth = player.gameObject.GetComponent<PlayerHealth>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 		
 		// The line renderer and light are off to start.
 		laserShotLine.enabled = false;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneHashIDs : MonoBehaviour
+public class HashIDs : MonoBehaviour
 {
 	// Here we store the hash tags for various strings used in our animators.
 	public int dyingState;

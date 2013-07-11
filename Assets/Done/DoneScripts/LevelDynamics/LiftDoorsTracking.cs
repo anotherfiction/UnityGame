@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneLiftDoorsTracking : MonoBehaviour
+public class LiftDoorsTracking : MonoBehaviour
 {
 	public float doorSpeed = 7f;			// How quickly the inner doors will track the outer doors.
 	

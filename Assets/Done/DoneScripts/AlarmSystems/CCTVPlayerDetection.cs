@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneCCTVPlayerDetection : MonoBehaviour
+public class CCTVPlayerDetection : MonoBehaviour
 {
     private GameObject player;								// Reference to the player.
-    private DoneLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player.
+    private LastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player.
 
 	
 	void Awake ()
 	{
 		// Setting up the references.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting>();
+		player = GameObject.FindGameObjectWithTag(Tags.player);
+		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
 	}
 	
 	

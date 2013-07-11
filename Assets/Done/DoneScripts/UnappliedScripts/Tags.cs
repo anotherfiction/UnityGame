@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneTags : MonoBehaviour
+public class Tags : MonoBehaviour
 {
 	// A list of tag strings.
 	public const string player = "Player";

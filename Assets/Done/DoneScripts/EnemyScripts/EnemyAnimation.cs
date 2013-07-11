@@ -1,33 +1,33 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneEnemyAnimation : MonoBehaviour
+public class EnemyAnimation : MonoBehaviour
 {
 	public float deadZone = 5f;					// The number of degrees for which the rotation isn't controlled by Mecanim.
 	
 	
 	private Transform player;					// Reference to the player's transform.
-	private DoneEnemySight enemySight;			// Reference to the EnemySight script.
+	private EnemySight enemySight;			// Reference to the EnemySight script.
 	private NavMeshAgent nav;					// Reference to the nav mesh agent.
 	private Animator anim;						// Reference to the Animator.
-	private DoneHashIDs hash;					// Reference to the HashIDs script.
-	private DoneAnimatorSetup animSetup;		// An instance of the AnimatorSetup helper class.
+	private HashIDs hash;					// Reference to the HashIDs script.
+	private AnimatorSetup animSetup;		// An instance of the AnimatorSetup helper class.
 
 
 	void Awake ()
 	{
 		// Setting up the references.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player).transform;
-		enemySight = GetComponent<DoneEnemySight>();
+		player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+		enemySight = GetComponent<EnemySight>();
 		nav = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 		
 		// Making sure the rotation is controlled by Mecanim.
 		nav.updateRotation = false;
 		
 		// Creating an instance of the AnimatorSetup class and calling it's constructor.
-		animSetup = new DoneAnimatorSetup(anim, hash);
+		animSetup = new AnimatorSetup(anim, hash);
 		
 		// Set the weights for the shooting and gun layers to 1.
 		anim.SetLayerWeight(1, 1f);

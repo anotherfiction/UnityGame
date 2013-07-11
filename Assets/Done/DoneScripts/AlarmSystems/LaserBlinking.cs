@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneLaserBlinking : MonoBehaviour
+public class LaserBlinking : MonoBehaviour
 {
 	public float onTime;			// Amount of time in seconds the laser is on for.
 	public float offTime;			// Amount of time in seconds the laser is off for.

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneLastPlayerSighting : MonoBehaviour
+public class LastPlayerSighting : MonoBehaviour
 {
     public Vector3 position = new Vector3(1000f, 1000f, 1000f);			// The last global sighting of the player.
 	public Vector3 resetPosition = new Vector3(1000f, 1000f, 1000f);	// The default position if the player is not in sight.
@@ -11,7 +11,7 @@ public class DoneLastPlayerSighting : MonoBehaviour
 	public float musicFadeSpeed = 1f;									// The speed at which the 
 	
 	
-	private DoneAlarmLight alarm;										// Reference to the AlarmLight script.
+	private AlarmLight alarm;										// Reference to the AlarmLight script.
 	private Light mainLight;											// Reference to the main light.
 	private AudioSource panicAudio;										// Reference to the AudioSource of the panic msuic.
 	private AudioSource[] sirens;										// Reference to the AudioSources of the megaphones.
@@ -20,16 +20,16 @@ public class DoneLastPlayerSighting : MonoBehaviour
 	void Awake ()
 	{
 		// Setup the reference to the alarm light.
-		alarm = GameObject.FindGameObjectWithTag(DoneTags.alarm).GetComponent<DoneAlarmLight>();
+		alarm = GameObject.FindGameObjectWithTag(Tags.alarm).GetComponent<AlarmLight>();
 		
 		// Setup the reference to the main directional light in the scene.
-		mainLight = GameObject.FindGameObjectWithTag(DoneTags.mainLight).light;
+		mainLight = GameObject.FindGameObjectWithTag(Tags.mainLight).light;
 		
 		// Setup the reference to the additonal audio source.
 		panicAudio = transform.FindChild("secondaryMusic").audio;
 		
 		// Find an array of the siren gameobjects.
-		GameObject[] sirenGameObjects = GameObject.FindGameObjectsWithTag(DoneTags.siren);
+		GameObject[] sirenGameObjects = GameObject.FindGameObjectsWithTag(Tags.siren);
 		
 		// Set the sirens array to have the same number of elements as there are gameobjects.
 		sirens = new AudioSource[sirenGameObjects.Length];

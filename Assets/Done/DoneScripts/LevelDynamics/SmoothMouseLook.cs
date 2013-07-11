@@ -81,7 +81,7 @@ public class SmoothMouseLook : MonoBehaviour
 	void Awake ()
 	{
 		
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		player = GameObject.FindGameObjectWithTag(Tags.player);
 
 		//Lock/Hide cursor
 		Screen.lockCursor = true;

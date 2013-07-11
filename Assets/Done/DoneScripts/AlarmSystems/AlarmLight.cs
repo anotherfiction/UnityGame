@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneAlarmLight : MonoBehaviour
+public class AlarmLight : MonoBehaviour
 {
 	public float fadeSpeed = 2f;			// How fast the light fades between intensities.
 	public float highIntensity = 2f;		// The maximum intensity of the light whilst the alarm is on.

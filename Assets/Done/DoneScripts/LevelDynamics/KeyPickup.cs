@@ -1,20 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneKeyPickup : MonoBehaviour
+public class KeyPickup : MonoBehaviour
 {
 	public AudioClip keyGrab;							// Audioclip to play when the key is picked up.
 	
 	
 	private GameObject player;							// Reference to the player.
-	private DonePlayerInventory playerInventory;		// Reference to the player's inventory.
+	private PlayerInventory playerInventory;		// Reference to the player's inventory.
 	
 	
 	void Awake ()
 	{
 		// Setting up the references.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
-		playerInventory = player.GetComponent<DonePlayerInventory>();
+		player = GameObject.FindGameObjectWithTag(Tags.player);
+		playerInventory = player.GetComponent<PlayerInventory>();
 	}
 	
 	

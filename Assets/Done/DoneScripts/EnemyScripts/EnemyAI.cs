@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneEnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
 	public float hitPoints = 100f;
 	public float patrolSpeed = 2f;							// The nav mesh agent's speed when patrolling.
@@ -11,11 +11,11 @@ public class DoneEnemyAI : MonoBehaviour
 	public Transform[] patrolWayPoints;						// An array of transforms for the patrol route.
 	
 	
-	private DoneEnemySight enemySight;						// Reference to the EnemySight script.
+	private EnemySight enemySight;						// Reference to the EnemySight script.
 	private NavMeshAgent nav;								// Reference to the nav mesh agent.
 	private Transform player;								// Reference to the player's transform.
-	private DonePlayerHealth playerHealth;					// Reference to the PlayerHealth script.
-	private DoneLastPlayerSighting lastPlayerSighting;		// Reference to the last global sighting of the player.
+	private PlayerHealth playerHealth;					// Reference to the PlayerHealth script.
+	private LastPlayerSighting lastPlayerSighting;		// Reference to the last global sighting of the player.
 	private float chaseTimer;								// A timer for the chaseWaitTime.
 	private float patrolTimer;								// A timer for the patrolWaitTime.
 	private int wayPointIndex;								// A counter for the way point array.
@@ -24,11 +24,11 @@ public class DoneEnemyAI : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the references.
-		enemySight = GetComponent<DoneEnemySight>();
+		enemySight = GetComponent<EnemySight>();
 		nav = GetComponent<NavMeshAgent>();
-		player = GameObject.FindGameObjectWithTag(DoneTags.player).transform;
-		playerHealth = player.GetComponent<DonePlayerHealth>();
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting>();
+		player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+		playerHealth = player.GetComponent<PlayerHealth>();
+		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
 	}
 	
 	

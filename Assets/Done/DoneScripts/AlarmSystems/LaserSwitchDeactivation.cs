@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneLaserSwitchDeactivation : MonoBehaviour
+public class LaserSwitchDeactivation : MonoBehaviour
 {
 	public GameObject laser;				// Reference to the laser that can we turned off at this switch.
 	public Material unlockedMat;		 	// The screen's material to show the laser has been unloacked.
@@ -13,7 +13,7 @@ public class DoneLaserSwitchDeactivation : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the reference.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		player = GameObject.FindGameObjectWithTag(Tags.player);
 	}
 	
 	

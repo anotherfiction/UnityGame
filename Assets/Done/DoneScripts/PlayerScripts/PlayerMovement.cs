@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DonePlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
 	public float turnSmoothing = 15f;	// A smoothing value for turning the player.
@@ -9,15 +9,15 @@ public class DonePlayerMovement : MonoBehaviour
 	private GameObject player;
 	
 	private Animator anim;				// Reference to the animator component.
-	private DoneHashIDs hash;			// Reference to the HashIDs.
+	private HashIDs hash;			// Reference to the HashIDs.
 	
 	
 	void Awake ()
 	{
 		// Setting up the references.
 		anim = GetComponent<Animator>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
-		player = GameObject.FindGameObjectWithTag (DoneTags.player);
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
+		player = GameObject.FindGameObjectWithTag (Tags.player);
 		
 		// Set the weight of the shouting layer to 1.
 		anim.SetLayerWeight(1, 1f);

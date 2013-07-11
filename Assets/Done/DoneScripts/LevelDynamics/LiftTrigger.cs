@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneLiftTrigger : MonoBehaviour
+public class LiftTrigger : MonoBehaviour
 {
 	public float timeToDoorsClose = 2f;					// Time since the player entered the lift before the doors close.
 	public float timeToLiftStart = 3f;					// Time since the player entered the lift before it starts to move.
@@ -11,9 +11,9 @@ public class DoneLiftTrigger : MonoBehaviour
 	
 	private GameObject player;							// Reference to the player.
 	private Animator playerAnim;						// Reference to the players animator component.
-	private DoneHashIDs hash;							// Reference to the HashIDs script.
-	private DoneSceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
-	private DoneLiftDoorsTracking liftDoorsTracking;	// Reference to LiftDoorsTracking script.
+	private HashIDs hash;							// Reference to the HashIDs script.
+	private SceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
+	private LiftDoorsTracking liftDoorsTracking;	// Reference to LiftDoorsTracking script.
 	private bool playerInLift;							// Whether the player is in the lift or not.
 	private float timer;								// Timer to determine when the lift moves and when the level ends.
 	
@@ -21,11 +21,11 @@ public class DoneLiftTrigger : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up references.
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		player = GameObject.FindGameObjectWithTag(Tags.player);
 		playerAnim = player.GetComponent<Animator>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
-		sceneFadeInOut = GameObject.FindGameObjectWithTag(DoneTags.fader).GetComponent<DoneSceneFadeInOut>();
-		liftDoorsTracking = GetComponent<DoneLiftDoorsTracking>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
+		sceneFadeInOut = GameObject.FindGameObjectWithTag(Tags.fader).GetComponent<SceneFadeInOut>();
+		liftDoorsTracking = GetComponent<LiftDoorsTracking>();
 	}
 	
 	

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneSceneFadeInOut : MonoBehaviour
+public class SceneFadeInOut : MonoBehaviour
 {
 	public float fadeSpeed = 1.5f;			// Speed that the screen fades to and from black.
 	

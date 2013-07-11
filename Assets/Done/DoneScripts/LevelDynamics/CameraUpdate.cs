@@ -22,7 +22,7 @@ public class CameraUpdate : MonoBehaviour
 	void Awake ()
 	{
 		
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		player = GameObject.FindGameObjectWithTag(Tags.player);
 	
 		positionCamera();
 	}

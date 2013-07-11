@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneEnemySight : MonoBehaviour
+public class EnemySight : MonoBehaviour
 {
 	public float fieldOfViewAngle = 110f;				// Number of degrees, centred on forward, for the enemy see.
     public bool playerInSight;							// Whether or not the player is currently sighted.
@@ -11,11 +11,11 @@ public class DoneEnemySight : MonoBehaviour
 	private NavMeshAgent nav;							// Reference to the NavMeshAgent component.
 	private SphereCollider col;							// Reference to the sphere collider trigger component.
 	private Animator anim;								// Reference to the Animator.
-	private DoneLastPlayerSighting lastPlayerSighting;	// Reference to last global sighting of the player.
+	private LastPlayerSighting lastPlayerSighting;	// Reference to last global sighting of the player.
     private GameObject player;							// Reference to the player.
 	private Animator playerAnim;						// Reference to the player's animator component.
-	private DonePlayerHealth playerHealth;				// Reference to the player's health script.
-	private DoneHashIDs hash;							// Reference to the HashIDs.
+	private PlayerHealth playerHealth;				// Reference to the player's health script.
+	private HashIDs hash;							// Reference to the HashIDs.
 	private Vector3 previousSighting;					// Where the player was sighted last frame.
 	
 	
@@ -25,11 +25,11 @@ public class DoneEnemySight : MonoBehaviour
 		nav = GetComponent<NavMeshAgent>();
 		col = GetComponent<SphereCollider>();
 		anim = GetComponent<Animator>();
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting>();
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
+		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
+		player = GameObject.FindGameObjectWithTag(Tags.player);
 		playerAnim = player.GetComponent<Animator>();
-		playerHealth = player.GetComponent<DonePlayerHealth>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
+		playerHealth = player.GetComponent<PlayerHealth>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 		
 		// Set the personal sighting and the previous sighting to the reset position.
 		personalLastSighting = lastPlayerSighting.resetPosition;

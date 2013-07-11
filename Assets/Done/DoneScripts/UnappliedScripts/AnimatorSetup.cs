@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneAnimatorSetup
+public class AnimatorSetup
 {
     public float speedDampTime = 0.1f;				// Damping time for the Speed parameter.
 	public float angularSpeedDampTime = 0.7f;		// Damping time for the AngularSpeed parameter
@@ -9,11 +9,11 @@ public class DoneAnimatorSetup
 	
 	
 	private Animator anim;							// Reference to the animator component.
-	private DoneHashIDs hash;						// Reference to the HashIDs script.
+	private HashIDs hash;						// Reference to the HashIDs script.
     
 	
 	// Constructor
-    public DoneAnimatorSetup(Animator animator, DoneHashIDs hashIDs)
+    public AnimatorSetup(Animator animator, HashIDs hashIDs)
     {
         anim = animator;
 		hash = hashIDs;

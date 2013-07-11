@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoneDoorAnimation : MonoBehaviour
+public class DoorAnimation : MonoBehaviour
 {
 	public bool requireKey;							// Whether or not a key is required.
 	public AudioClip doorSwishClip;					// Clip to play when the doors open or close.
@@ -9,9 +9,9 @@ public class DoneDoorAnimation : MonoBehaviour
 	
 	
 	private Animator anim;							// Reference to the animator component.
-	private DoneHashIDs hash;						// Reference to the HashIDs script.
+	private HashIDs hash;						// Reference to the HashIDs script.
 	private GameObject player;						// Reference to the player GameObject.
-	private DonePlayerInventory playerInventory;	// Reference to the PlayerInventory script.
+	private PlayerInventory playerInventory;	// Reference to the PlayerInventory script.
 	private int count;								// The number of colliders present that should open the doors.
 	
 	
@@ -19,9 +19,9 @@ public class DoneDoorAnimation : MonoBehaviour
 	{
 		// Setting up the references.
 		anim = GetComponent<Animator>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
-		player = GameObject.FindGameObjectWithTag(DoneTags.player);
-		playerInventory = player.GetComponent<DonePlayerInventory>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
+		player = GameObject.FindGameObjectWithTag(Tags.player);
+		playerInventory = player.GetComponent<PlayerInventory>();
 	}
 	
 	
@@ -49,7 +49,7 @@ public class DoneDoorAnimation : MonoBehaviour
 				count++;
 		}
 		// If the triggering gameobject is an enemy...
-		else if(other.gameObject.tag == DoneTags.enemy)
+		else if(other.gameObject.tag == Tags.enemy)
 		{
 			// ... if the triggering collider is a capsule collider...
 			if(other is CapsuleCollider)
@@ -62,7 +62,7 @@ public class DoneDoorAnimation : MonoBehaviour
 	void OnTriggerExit (Collider other)
 	{
 		// If the leaving gameobject is the player or an enemy and the collider is a capsule collider...
-		if(other.gameObject == player || (other.gameObject.tag == DoneTags.enemy && other is CapsuleCollider))
+		if(other.gameObject == player || (other.gameObject.tag == Tags.enemy && other is CapsuleCollider))
 			// decrease the count of triggering objects.
 			count = Mathf.Max(0, count-1);
 	}
