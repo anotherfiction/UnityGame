@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DoneEnemyAI : MonoBehaviour
 {
+	public float hitPoints = 100f;
 	public float patrolSpeed = 2f;							// The nav mesh agent's speed when patrolling.
 	public float chaseSpeed = 5f;							// The nav mesh agent's speed when chasing.
 	public float chaseWaitTime = 5f;						// The amount of time to wait when the last sighting is reached.
@@ -121,5 +122,13 @@ public class DoneEnemyAI : MonoBehaviour
 		
 		// Set the destination to the patrolWayPoint.
 		nav.destination = patrolWayPoints[wayPointIndex].position;
+	}
+
+	void hit(float damage)
+	{
+		hitPoints -= damage;
+
+		if (hitPoints <= 0f)
+			Destroy(renderer);
 	}
 }

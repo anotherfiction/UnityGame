@@ -6,7 +6,7 @@ public class DonePlayerMovement : MonoBehaviour
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
 	public float turnSmoothing = 15f;	// A smoothing value for turning the player.
 	public float speedDampTime = 0.1f;	// The damping for the speed parameter
-	
+	private GameObject player;
 	
 	private Animator anim;				// Reference to the animator component.
 	private DoneHashIDs hash;			// Reference to the HashIDs.
@@ -17,6 +17,7 @@ public class DonePlayerMovement : MonoBehaviour
 		// Setting up the references.
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
+		player = GameObject.FindGameObjectWithTag (DoneTags.player);
 		
 		// Set the weight of the shouting layer to 1.
 		anim.SetLayerWeight(1, 1f);
@@ -55,8 +56,17 @@ public class DonePlayerMovement : MonoBehaviour
 		if(horizontal != 0f || vertical != 0f)
 		{
 			// ... set the players rotation and set the speed parameter to 5.5f.
-			Rotating(horizontal, vertical);
+			//Rotating(horizontal, vertical);
 			anim.SetFloat(hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
+
+			/*if(vertical < 0)
+				player.transform.Translate (Vector3.forward * -1);
+			else if (vertical > 0)
+				player.transform.Translate (Vector3.forward);
+			if(horizontal < 0)
+				player.transform.Translate (Vector3.right * -1);
+			else if (horizontal > 0)
+				player.transform.Translate (Vector3.right);*/
 		}
 		else
 			// Otherwise set the speed parameter to 0.
